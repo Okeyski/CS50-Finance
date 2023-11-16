@@ -1,0 +1,26 @@
+{% extends "layout.html" %} {% block title %} History {% endblock %} {% block
+main %}
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th class="text-start">Name</th>
+      <th class="text-end">Price</th>
+      <th class="text-end">Number of Shares</th>
+      <th class="text-end">Date transacted</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <!-- TODO: Loop through the database entries to display them in this table -->
+
+    {% for i in events %}
+    <tr>
+      <td class="text-start">{{i.stock}}</td>
+      <td class="text-end">{{i.price | usd}}</td>
+      <td class="text-end">{{i.number_of_shares}}</td>
+      <td class="text-end">{{i.date}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+  {% endblock %}
+</table>

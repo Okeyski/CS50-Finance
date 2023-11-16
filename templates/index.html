@@ -1,0 +1,37 @@
+{% extends "layout.html" %} {% block title %} Portfolio {% endblock %} {% block
+main %}
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th class="text-start">Name</th>
+      <th class="text-end">Price</th>
+      <th class="text-end">Number of Shares</th>
+      <th class="text-end">TOTAL</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <!-- TODO: Loop through the database entries to display them in this table -->
+
+    {% for i in purchases %}
+    <tr>
+      <td class="text-start">{{i.stock}}</td>
+      <td class="text-end">{{i.price | usd}}</td>
+      <td class="text-end">{{i.shares}}</td>
+      <td class="text-end">{{i.total_holding_value | usd}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+  <tfoot>
+    <tr>
+      <td class="border-0 fw-bold text-end" colspan="3">Cash</td>
+      <td class="border-0 text-end">{{cash_left | usd}}</td>
+    </tr>
+    <tr>
+      <td class="border-0 fw-bold text-end" colspan="3">TOTAL</td>
+      <td class="border-0 w-bold text-end">{{sum_total | usd}}</td>
+    </tr>
+  </tfoot>
+</table>
+
+{% endblock %}
